@@ -67,8 +67,8 @@ ctypedef SACSegmentationFromNormals[PointXYZ,Normal] SACSegmentationNormal_t
 #        void setPolynomialOrder(bool)
 #        void setPolynomialFit(int)
 #        void reconstruct (PointCloud[I])
-
-ctypedef MovingLeastSquares[PointXYZ,Normal] MovingLeastSquares_t
+#
+#ctypedef MovingLeastSquares[PointXYZ,Normal] MovingLeastSquares_t
 
 cdef extern from "pcl/search/kdtree.h" namespace "pcl::search":
     cdef cppclass KdTree[T]:
