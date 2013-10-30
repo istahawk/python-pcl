@@ -58,14 +58,15 @@ cdef extern from "pcl/segmentation/sac_segmentation.h" namespace "pcl":
 ctypedef SACSegmentation[PointXYZ] SACSegmentation_t
 ctypedef SACSegmentationFromNormals[PointXYZ,Normal] SACSegmentationNormal_t
 
-cdef extern from "pcl/surface/mls.h" namespace "pcl":
-    cdef cppclass MovingLeastSquares[I,N]:
-        MovingLeastSquares()
-        void setInputCloud (shared_ptr[PointCloud[I]])
-        void setSearchRadius (double)
-        void setPolynomialOrder(bool)
-        void setPolynomialFit(int)
-        void reconstruct (PointCloud[I])
+## Disable mls in pcl1.7
+#cdef extern from "pcl/surface/mls.h" namespace "pcl":
+#    cdef cppclass MovingLeastSquares[I,N]:
+#        MovingLeastSquares()
+#        void setInputCloud (shared_ptr[PointCloud[I]])
+#        void setSearchRadius (double)
+#        void setPolynomialOrder(bool)
+#        void setPolynomialFit(int)
+#        void reconstruct (PointCloud[I])
 
 ctypedef MovingLeastSquares[PointXYZ,Normal] MovingLeastSquares_t
 

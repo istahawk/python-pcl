@@ -297,16 +297,17 @@ cdef class PointCloud:
         cfil.setInputCloud(ccloud.makeShared())
         return fil
 
-    def make_moving_least_squares(self):
-        """
-        Return a pcl.MovingLeastSquares object with this object set as the input-cloud
-        """
-        mls = MovingLeastSquares()
-
-        cdef cpp.MovingLeastSquares_t *cmls = <cpp.MovingLeastSquares_t *>mls.me
-        cdef cpp.PointCloud_t *ccloud = <cpp.PointCloud_t *>self.thisptr
-        cmls.setInputCloud(ccloud.makeShared())
-        return mls
+## Disable mls in pcl1.7
+#    def make_moving_least_squares(self):
+#        """
+#        Return a pcl.MovingLeastSquares object with this object set as the input-cloud
+#        """
+#        mls = MovingLeastSquares()
+#
+#        cdef cpp.MovingLeastSquares_t *cmls = <cpp.MovingLeastSquares_t *>mls.me
+#        cdef cpp.PointCloud_t *ccloud = <cpp.PointCloud_t *>self.thisptr
+#        cmls.setInputCloud(ccloud.makeShared())
+#        return mls
 
     def make_kdtree_flann(self):
         """
